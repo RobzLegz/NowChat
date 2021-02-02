@@ -6,6 +6,7 @@ import db from "./firebase";
 import useStateValue from './StateProvider';
 import { useParams } from 'react-router-dom';
 import firebase from "firebase"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Chat = () => {
 
@@ -39,6 +40,10 @@ const Chat = () => {
         }
     }, [channelId]);
 
+    const signOut = () => {
+        window.location.reload();
+    }
+
     return (
         <div className="chat">
             <div className="chatHeader">
@@ -52,6 +57,10 @@ const Chat = () => {
                         <h2>{user?.displayName}</h2>
                         <small>{user?.email}</small>
                     </div>
+                </div>
+                <div onClick={signOut} className="sign-out-container">
+                    <ExitToAppIcon />
+                    <p>Log Out</p>
                 </div>
             </div>
             <div className="chatBody">
