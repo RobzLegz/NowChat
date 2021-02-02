@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar-header">
                 <h2>NowChat</h2>
-                <AddIcon />
+                <AddIcon classname="addChatButton" />
             </div>
             <div className="sidebar-chats">
                 <SidebarChat />

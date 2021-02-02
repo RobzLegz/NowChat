@@ -4,7 +4,7 @@ import "./SidebarChat.css";
 const SidebarChat = () => {
     return (
         <div>
-            
+            sidebarchat
         </div>
     );
 }
