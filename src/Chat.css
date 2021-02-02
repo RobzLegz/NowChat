@@ -22,6 +22,11 @@
   width: 100%;
   height: calc(100vh - 140px);
   padding: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.chatBody::-webkit-scrollbar {
+  display: none;
 }
 .chatFooter {
   width: 100%;
