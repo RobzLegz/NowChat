@@ -24,4 +24,15 @@
   display: flex;
   align-items: center;
   background-color: #48489c;
+  justify-content: center;
+}
+.chatFooter > form {
+  width: fit-content;
+}
+.chatFooter > form > input {
+  width: 400px;
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
 }
