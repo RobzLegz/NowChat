@@ -12,7 +12,7 @@ const SidebarChat = ({id, name}) => {
     }, []);
 
     return (
-        <Link to={`/channels/${id}`}>
+        <Link className="chatLink" to={`/channels/${id}`}>
             <div className="sidebarChat">
                 <Avatar className="sidebarChatAvatar" src={`https://avatars.dicebear.com/api/identicon/${avatarSeed}.svg`} />
                 <p>{name}</p>
