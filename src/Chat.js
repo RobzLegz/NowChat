@@ -7,6 +7,7 @@ import useStateValue from './StateProvider';
 import { useParams } from 'react-router-dom';
 import firebase from "firebase"
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 const Chat = () => {
 
@@ -20,12 +21,16 @@ const Chat = () => {
     const sendMessage = (e) => {
         e.preventDefault();
         setMessage("");
-        db.collection("channels").doc(channelId).collection("messages").add({
-            name: user?.displayName,
-            photo: user?.photoURL,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            message: message,
-        })
+        if(message === ""){
+            return;
+        }else if(message !== ""){
+            db.collection("channels").doc(channelId).collection("messages").add({
+                name: user?.displayName,
+                photo: user?.photoURL,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                message: message,
+            })
+        }
     }
 
     useEffect(() => {
@@ -73,6 +78,7 @@ const Chat = () => {
                     <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder={`Message as ${user.displayName}`}/>
                     <button type="submit" onClick={sendMessage}>Send</button>
                 </form>
+                <AttachFileIcon />
             </div>
         </div>
     );
