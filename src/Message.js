@@ -10,13 +10,13 @@ const Message = ({messageName, messageText, messageTimestamp, messagePhoto}) => 
     const [{user}, dispatch] = useStateValue();
     
     return (
-        <div className="message">
+        <div className={`message ${messageName === user.displayName && "messageRecieverMessage"}`}>
             <div className="messageAvatar">
                 <Avatar src={messagePhoto} />
             </div>
-            <div className="message-info">
+            <div className={`message-info ${messageName === user.displayName && "messageReciever"}`}>
                 <p>{messageName}</p>
-                <h4>{messageText}</h4>
+                <h3>{messageText}</h3>
                 <small>{timeago.format(new Date(messageTimestamp?.toDate()).toLocaleString())}</small>
             </div>
         </div>
