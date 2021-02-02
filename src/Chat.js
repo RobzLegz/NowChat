@@ -20,8 +20,8 @@ const Chat = () => {
         e.preventDefault();
         setMessage("");
         db.collection("channels").doc(channelId).collection("messages").add({
-            name: user.displayName,
-            photo: user.photoURL,
+            name: user?.displayName,
+            photo: user?.photoURL,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             message: message,
         })
@@ -56,7 +56,7 @@ const Chat = () => {
             </div>
             <div className="chatBody">
                 {messages.map((message) => (
-                    <Message key={message.id} id={message.id} messageName={message.name} messageText={message.message} messageTimestamp={message.timestamp} />
+                    <Message key={message.id} id={message.id} messageName={message.name} messageText={message.message} messageTimestamp={message.timestamp} messagePhoto={message.photo} />
                 ))}
             </div>
             <div className="chatFooter">

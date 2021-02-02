@@ -5,14 +5,14 @@ import "./Message.css";
 import useStateValue from './StateProvider';
 import * as timeago from 'timeago.js';
 
-const Message = ({messageName, messageText, messageTimestamp}) => {
+const Message = ({messageName, messageText, messageTimestamp, messagePhoto}) => {
 
     const [{user}, dispatch] = useStateValue();
     
     return (
         <div className="message">
             <div className="messageAvatar">
-                <Avatar src={user?.photoURL} />
+                <Avatar src={messagePhoto} />
             </div>
             <div className="message-info">
                 <p>{messageName}</p>
