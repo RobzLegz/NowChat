@@ -7,6 +7,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-header">
+                <h2>NowChat</h2>
                 <AddIcon />
             </div>
             <div className="sidebar-chats">
