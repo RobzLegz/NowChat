@@ -5,6 +5,7 @@ import Message from './Message';
 import db from "./firebase";
 import useStateValue from './StateProvider';
 import { useParams } from 'react-router-dom';
+import firebase from "firebase"
 
 const Chat = () => {
 
@@ -18,6 +19,12 @@ const Chat = () => {
     const sendMessage = (e) => {
         e.preventDefault();
         setMessage("");
+        db.collection("channels").doc(channelId).collection("messages").add({
+            name: user.displayName,
+            photo: user.photoURL,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            message: message,
+        })
     }
 
     useEffect(() => {
