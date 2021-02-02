@@ -3,8 +3,9 @@ import React from 'react';
 import "./Chat.css";
 import "./Message.css";
 import useStateValue from './StateProvider';
+import * as timeago from 'timeago.js';
 
-const Message = () => {
+const Message = ({messageName, messageText, messageTimestamp}) => {
 
     const [{user}, dispatch] = useStateValue();
     
@@ -14,9 +15,9 @@ const Message = () => {
                 <Avatar src={user?.photoURL} />
             </div>
             <div className="message-info">
-                <p>{user?.displayName}</p>
-                <h4>Message</h4>
-                <small>10:00</small>
+                <p>{messageName}</p>
+                <h4>{messageText}</h4>
+                <small>{timeago.format(new Date(messageTimestamp?.toDate()).toLocaleString())}</small>
             </div>
         </div>
     );

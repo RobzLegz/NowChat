@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 const Chat = () => {
 
     const [{user}, dispatch] = useStateValue();
+    const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState("");
     const [avatarSeed, setAvatarSeed] = useState("");
     const [channelName, setChannelName] = useState("");
@@ -25,6 +26,9 @@ const Chat = () => {
             db.collection("channels").doc(channelId).onSnapshot((snapshot) => (
                 setChannelName(snapshot.data().channelName)
             ));
+            db.collection("channels").doc(channelId).collection("messages").orderBy("timestamp", "asc").onSnapshot((snapshot) => (
+                setMessages(snapshot.docs.map((doc) => doc.data()))
+            ))
         }
     }, [channelId]);
 
@@ -44,7 +48,9 @@ const Chat = () => {
                 </div>
             </div>
             <div className="chatBody">
-                <Message />
+                {messages.map((message) => (
+                    <Message key={message.id} id={message.id} messageName={message.name} messageText={message.message} messageTimestamp={message.timestamp} />
+                ))}
             </div>
             <div className="chatFooter">
                 <form>
