@@ -49,3 +49,6 @@
   display: flex;
   align-items: center;
 }
+.userInfo {
+  margin-left: 20px;
+}
