@@ -5,7 +5,7 @@ import "./Message.css";
 import useStateValue from './StateProvider';
 import * as timeago from 'timeago.js';
 
-const Message = ({messageName, messageText, messageTimestamp, messagePhoto}) => {
+const Message = ({messageName, messageText, messageTimestamp, messagePhoto, messageImage}) => {
 
     const [{user}, dispatch] = useStateValue();
     
@@ -17,6 +17,7 @@ const Message = ({messageName, messageText, messageTimestamp, messagePhoto}) => 
             <div className={`message-info ${messageName === user.displayName && "messageReciever"}`}>
                 <p>{messageName}</p>
                 <h3>{messageText}</h3>
+                <img src={messageImage} className={`${messageImage ? "openImage" : "noImage"}`} alt="Doesn't exist"/>
                 <small>{timeago.format(new Date(messageTimestamp?.toDate()).toLocaleString())}</small>
             </div>
         </div>

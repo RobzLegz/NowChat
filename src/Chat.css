@@ -53,14 +53,20 @@
 }
 .chatFooter > form {
   width: fit-content;
+  display: flex;
+  align-items: center;
 }
-.chatFooter > form > input {
+.chatFooter > form > input,
+.photoInput {
   width: 400px;
   padding: 5px 20px;
   border: none;
   outline: none;
   border-radius: 999px;
   font-size: 16px;
+}
+.photoInput {
+  display: none;
 }
 .chatFooter > form > button {
   display: none;
@@ -71,4 +77,11 @@
 }
 .userInfo {
   margin-left: 20px;
+}
+.chatFooter > form > .MuiSvgIcon-root {
+  color: #fff !important;
+  cursor: pointer;
+}
+.openPhotoInput {
+  display: block;
 }

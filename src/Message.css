@@ -36,3 +36,11 @@
 .messageRecieverMessage {
   margin-left: 80%;
 }
+.noImage {
+  display: none;
+}
+.openImage {
+  max-width: 200px;
+  max-width: 150px;
+  object-fit: contain;
+}
