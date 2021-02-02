@@ -36,3 +36,6 @@
   outline: none;
   border-radius: 999px;
 }
+.chatFooter > form > button {
+  display: none;
+}

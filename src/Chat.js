@@ -1,6 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import React from 'react';
 import "./Chat.css";
+import Message from './Message';
 
 const Chat = () => {
     return (
@@ -10,7 +11,7 @@ const Chat = () => {
                 <h2>Username</h2>
             </div>
             <div className="chatBody">
-                message
+                <Message />
             </div>
             <div className="chatFooter">
                 <form>

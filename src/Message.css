@@ -1,0 +1,7 @@
+.message {
+  width: fit-content;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+}
