@@ -1,0 +1,11 @@
+.chat {
+  flex: 0.75;
+  background-color: #f6f6f6;
+  height: 100vh;
+}
+.chatHeader {
+  width: 100%;
+  height: 70px;
+  color: #fff;
+  background-color: #48489c;
+}
