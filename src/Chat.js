@@ -4,28 +4,36 @@ import "./Chat.css";
 import Message from './Message';
 import db from "./firebase";
 import useStateValue from './StateProvider';
+import { useParams } from 'react-router-dom';
 
 const Chat = () => {
 
     const [{user}, dispatch] = useStateValue();
     const [message, setMessage] = useState("");
     const [avatarSeed, setAvatarSeed] = useState("");
-
-    useEffect(() => {
-        setAvatarSeed(Math.floor(Math.random() * 5000));
-    }, [])
+    const [channelName, setChannelName] = useState("");
+    const {channelId} = useParams();
 
     const sendMessage = (e) => {
         e.preventDefault();
         setMessage("");
     }
 
+    useEffect(() => {
+        setAvatarSeed(Math.floor(Math.random() * 5000));
+        if(channelId){
+            db.collection("channels").doc(channelId).onSnapshot((snapshot) => (
+                setChannelName(snapshot.data().channelName)
+            ));
+        }
+    }, [channelId]);
+
     return (
         <div className="chat">
             <div className="chatHeader">
                 <div className="chatHeaderInfo">
-                <Avatar className="sidebarChatAvatar" src={`https://avatars.dicebear.com/api/identicon/${avatarSeed}.svg`} />
-                    <p>Channel name</p>
+                    <Avatar className="sidebarChatAvatar" src={`https://avatars.dicebear.com/api/identicon/${avatarSeed}.svg`} />
+                    <p>{channelName}</p>
                 </div>
                 <div className="chatHeaderInfo">
                     <Avatar src={user?.photoURL} />

@@ -1,5 +1,6 @@
 import { Avatar } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./SidebarChat.css";
 
 const SidebarChat = ({id, name}) => {
@@ -11,10 +12,12 @@ const SidebarChat = ({id, name}) => {
     }, []);
 
     return (
-        <div className="sidebarChat">
-            <Avatar className="sidebarChatAvatar" src={`https://avatars.dicebear.com/api/identicon/${avatarSeed}.svg`} />
-            <p>{name}</p>
-        </div>
+        <Link to={`/channels/${id}`}>
+            <div className="sidebarChat">
+                <Avatar className="sidebarChatAvatar" src={`https://avatars.dicebear.com/api/identicon/${avatarSeed}.svg`} />
+                <p>{name}</p>
+            </div>
+        </Link>
     );
 }
 

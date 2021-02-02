@@ -12,7 +12,7 @@ const Login = () => {
             dispatch({
                 type: "SET_USER",
                 user: result.user,
-            })
+            });
         }).catch((error) => alert(error.message));
     }
 

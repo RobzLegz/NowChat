@@ -16,6 +16,7 @@ const Message = () => {
             <div className="message-info">
                 <p>{user?.displayName}</p>
                 <h4>Message</h4>
+                <small>10:00</small>
             </div>
         </div>
     );
