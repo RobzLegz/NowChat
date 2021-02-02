@@ -1,7 +1,22 @@
 .message {
+  display: flex;
+  height: fit-content;
+  align-items: center;
+}
+.message-info {
+  position: relative;
   width: fit-content;
   max-width: 500px;
   display: flex;
   flex-direction: row;
-  height: 70px;
+  min-height: 70px;
+  height: fit-content;
+  background-color: #c2c2c2;
+  padding: 35px 20px 10px 35px;
+  margin-left: 20px;
+}
+.message-info > p {
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }

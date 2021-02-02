@@ -10,9 +10,8 @@ const Message = () => {
                 <Avatar />
             </div>
             <div className="message-info">
+                <p>username</p>
                 <h4>Message</h4>
-                <p>Username</p>
-                <small>Timestamp</small>
             </div>
         </div>
     );

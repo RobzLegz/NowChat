@@ -12,11 +12,16 @@
   background-color: #48489c;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+}
+.chatHeader > .chatHeaderInfo > h2,
+.chatHeader > .chatHeaderInfo > p {
+  margin-left: 20px;
 }
 .chatBody {
   width: 100%;
   height: calc(100vh - 140px);
+  padding: 50px;
 }
 .chatFooter {
   width: 100%;
@@ -35,7 +40,12 @@
   border: none;
   outline: none;
   border-radius: 999px;
+  font-size: 16px;
 }
 .chatFooter > form > button {
   display: none;
+}
+.chatHeaderInfo {
+  display: flex;
+  align-items: center;
 }
