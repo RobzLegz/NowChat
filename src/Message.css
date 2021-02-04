@@ -44,3 +44,11 @@
   max-width: 150px;
   object-fit: contain;
 }
+@media (max-width: 1550px) {
+  .messageReciever {
+    right: 20px;
+  }
+  .messageAvatar {
+    display: none;
+  }
+}
